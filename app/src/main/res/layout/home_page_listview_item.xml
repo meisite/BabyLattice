@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/homePage_bikan_listView_iv"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_margin="15dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/homePage_bikan_listView_tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="25dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm"
+            android:textSize="16sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/homePage_bikan_listView_tv_store_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="￥519.35"
+                android:textColor="@color/colorMain"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/homePage_bikan_listView_tv_market_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C$20.48"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp">
+
+            <ImageView
+                android:id="@+id/feiji_iv"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:id="@+id/homePage_bikan_listView_tv_country_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/feiji_iv"
+                android:text="美国"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/homePage_bikan_listView_tv_refer_text_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:text="well.ca"
+                android:textSize="12sp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
