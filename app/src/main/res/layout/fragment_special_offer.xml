@@ -1,15 +1,47 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="horizontal"
-              tools:context="qianfeng.com.babylattice.b_specialoffer.ui.SpecialOfferFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="qianfeng.com.babylattice.b_specialoffer.ui.SpecialOfferFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="特卖Fragment"/>
+        android:layout_height="match_parent">
 
-</LinearLayout>
+        <in.srain.cube.views.ptr.PtrClassicFrameLayout
+            android:id="@+id/ptrClassic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#fff"
+            app:ptr_duration_to_close="200"
+            app:ptr_duration_to_close_header="1000"
+            app:ptr_keep_header_when_refresh="true"
+            app:ptr_pull_to_fresh="false"
+            app:ptr_ratio_of_header_height_to_refresh="1.2"
+            app:ptr_resistance="1.7"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/special_offer_tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_top_title_height"
+        app:tabIndicatorColor="@color/colorMain"
+        app:tabIndicatorHeight="1dp"
+        app:tabSelectedTextColor="@color/colorMain"
+        app:tabTextColor="#AFAFAF"/>
+
+</RelativeLayout>

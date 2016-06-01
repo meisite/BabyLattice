@@ -41,6 +41,7 @@ import qianfeng.com.babylattice.a_homepage.constant.HomePageURL;
 import qianfeng.com.babylattice.z_other.ui.BaseFragment;
 import qianfeng.com.babylattice.z_other.widget.GuideIndexView;
 import qianfeng.com.babylattice.z_other.widget.HomePageMiaoShaLayout;
+import qianfeng.com.babylattice.z_other.widget.MyScrollView;
 
 
 /**
@@ -52,7 +53,7 @@ public class HomePageFragment extends BaseFragment {
 
     private RelativeLayout top_view;
     private TextView top_side_menu;
-    private ScrollView scrollView;
+    private MyScrollView scrollView;
     private ConvenientBanner convenientBanner, small_banner02, small_banner03, small_banner04;
     private GuideIndexView index_view, index_view02, index_view03, index_view04;
     private RelativeLayout relativeLayout;
@@ -62,7 +63,7 @@ public class HomePageFragment extends BaseFragment {
     private ImageView USA, AUSTRALIA, KOREA, JAPAN, GERMANY, UK, CANADA, BONDED, ITALY, NEW_ZEALAND, NETHERLANDS;
     private ImageView jingxuan_zhong4, jingxuan_left1, jingxuan_left2, jingxuan_zhong1, jingxuan_zhong2, jingxuan_right1, jingxuan_right2, jingxuan_right4, jingxuan_zhongright3;
     private ImageView remen_one, remen_two, remen_three, remen_four, remen_five;
-    private TabLayout tab_Layout;
+    private TabLayout tab_Layout, gone_tab_Layout;
     private ListView listView;
     private ImageView fast_enter_iv1, fast_enter_iv2, fast_enter_iv3, fast_enter_iv4;
     private ImageView hot_msg_iv;
@@ -80,7 +81,7 @@ public class HomePageFragment extends BaseFragment {
         top_view = (RelativeLayout) view.findViewById(R.id.homePage_top_view);
 
         top_side_menu = (TextView) view.findViewById(R.id.homePage_top_side_menu);
-        scrollView = (ScrollView) view.findViewById(R.id.homePage_scrollView);
+        scrollView = (MyScrollView) view.findViewById(R.id.homePage_scrollView);
 
         convenientBanner = (ConvenientBanner) view.findViewById(R.id.homePage_convenientBanner);
         index_view = (GuideIndexView) view.findViewById(R.id.homePage_index_view);
@@ -133,6 +134,7 @@ public class HomePageFragment extends BaseFragment {
         remen_five = (ImageView) view.findViewById(R.id.homePage_remen_five_iv);
 
         tab_Layout = (TabLayout) view.findViewById(R.id.homePage_bikan_tabLayout);
+        gone_tab_Layout = (TabLayout) view.findViewById(R.id.homePage_gone_tabLayout);
         listView = (ListView) view.findViewById(R.id.homePage_bikan_listView);
 
         fast_enter_iv1 = (ImageView) view.findViewById(R.id.homePage_fast_enter_iv1);
@@ -184,6 +186,13 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     protected void initDatas() {
+
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("美加"));
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("德意"));
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("日韩"));
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("英荷"));
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("澳新"));
+        gone_tab_Layout.addTab(gone_tab_Layout.newTab().setText("保税"));
 
         /**
          * OkHttp加载首页数据
@@ -306,7 +315,7 @@ public class HomePageFragment extends BaseFragment {
         List<String> images = new ArrayList<>();
 
         HomePage.DataBean data = homePage.getData();
-        List<HomePageAd> ad = data.getAd();
+        final List<HomePageAd> ad = data.getAd();
         List<HomePageList> list = data.getList();
         Glide.with(this).load(list.get(0).getCountry_pic_l()).into(USA);
         Glide.with(this).load(list.get(1).getCountry_pic()).into(AUSTRALIA);
@@ -321,6 +330,9 @@ public class HomePageFragment extends BaseFragment {
         Glide.with(this).load(list.get(10).getCountry_pic_l()).into(NETHERLANDS);
 
         if (ad != null && ad.size() > 0) {
+
+            index_view04.drawCount(ad.size());
+
             for (int i = 0; i < ad.size(); i++) {
                 String image = ad.get(i).getAd_pic();
                 images.add(image);
@@ -367,7 +379,7 @@ public class HomePageFragment extends BaseFragment {
         List<String> images = new ArrayList<>();
 
         HomePage.DataBean data = homePage.getData();
-        List<HomePageAd> ad = data.getAd();
+        final List<HomePageAd> ad = data.getAd();
         List<HomePageList> list = data.getList();
         Glide.with(this).load(list.get(0).getAd_pic()).into(chaozhi_left1);
         Glide.with(this).load(list.get(1).getAd_pic()).into(chaozhi_right1);
@@ -376,6 +388,9 @@ public class HomePageFragment extends BaseFragment {
         Glide.with(this).load(list.get(4).getAd_pic()).into(chaozhi_left2);
 
         if (ad != null && ad.size() > 0) {
+
+            index_view03.drawCount(ad.size());
+
             for (int i = 0; i < ad.size(); i++) {
                 String image = ad.get(i).getAd_pic();
                 images.add(image);
@@ -458,9 +473,12 @@ public class HomePageFragment extends BaseFragment {
         List<String> images = new ArrayList<>();
 
         HomePage.DataBean data = homePage.getData();
-        List<HomePageAd> ad = data.getAd();
+        final List<HomePageAd> ad = data.getAd();
 
         if (ad != null && ad.size() > 0) {
+
+            index_view02.drawCount(ad.size());
+
             for (int i = 0; i < ad.size(); i++) {
                 String image = ad.get(i).getAd_pic();
                 images.add(image);
@@ -543,6 +561,8 @@ public class HomePageFragment extends BaseFragment {
             images.add(image);
         }
 
+        index_view.drawCount(list.size());
+
         convenientBanner.setPages(new CBViewHolderCreator<NetworkImageHolderView>() {
 
             @Override
@@ -552,7 +572,7 @@ public class HomePageFragment extends BaseFragment {
         }, images).setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                LL.d("position = " + position);
+//                LL.d("position = " + position);
             }
         }).setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override

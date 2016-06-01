@@ -5,7 +5,7 @@
              android:layout_height="match_parent"
              tools:context="qianfeng.com.babylattice.a_homepage.ui.HomePageFragment">
 
-    <ScrollView
+    <qianfeng.com.babylattice.z_other.widget.MyScrollView
         android:id="@+id/homePage_scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,6 @@
                     app:circle_padding="9dp"
                     app:color_default="#ccc"
                     app:color_selected="@color/colorMain"
-                    app:count="12"
                     app:radius="3dp"/>
             </RelativeLayout>
 
@@ -161,7 +160,6 @@
                     app:circle_padding="9dp"
                     app:color_default="#ccc"
                     app:color_selected="@color/colorMain"
-                    app:count="3"
                     app:radius="3dp"/>
             </RelativeLayout>
 
@@ -301,7 +299,6 @@
                     app:circle_padding="9dp"
                     app:color_default="#ccc"
                     app:color_selected="@color/colorMain"
-                    app:count="3"
                     app:radius="3dp"/>
             </RelativeLayout>
 
@@ -452,7 +449,6 @@
                     app:circle_padding="9dp"
                     app:color_default="#ccc"
                     app:color_selected="@color/colorMain"
-                    app:count="3"
                     app:radius="3dp"/>
             </RelativeLayout>
 
@@ -664,54 +660,81 @@
                 android:divider="#ccc"
                 android:dividerHeight="1dp"/>
         </LinearLayout>
-    </ScrollView>
+    </qianfeng.com.babylattice.z_other.widget.MyScrollView>
 
 
     <RelativeLayout
-        android:id="@+id/homePage_top_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/app_top_title_height"
-        android:background="#00FF4484">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/homePage_top_side_menu"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:background="@drawable/selector_home_page_top_menu"
-            android:clickable="true"/>
-
-        <LinearLayout
-            android:id="@+id/homePage_top_search"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/shape_home_page_top_search"
-            android:orientation="horizontal">
+        <RelativeLayout
+            android:id="@+id/homePage_top_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_top_title_height"
+            android:background="#00FF4484">
 
             <TextView
-                android:layout_width="20dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:background="@mipmap/icon_title_search"/>
-
-            <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/homePage_top_side_menu"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:gravity="center"
-                android:text="啦啦啦啦啦啦"
-                android:textColor="@color/colorGray"
-                android:textSize="15sp"/>
-        </LinearLayout>
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_home_page_top_menu"
+                android:clickable="true"/>
 
-        <TextView
-            android:layout_width="50dp"
+            <LinearLayout
+                android:id="@+id/homePage_top_search"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_home_page_top_search"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/icon_title_search"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="啦啦啦啦啦啦"
+                    android:textColor="@color/colorGray"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_menu_kefu_default_index"/>
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/homePage_gone_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/homePage_top_view"
+            android:background="#fff"
+            android:visibility="invisible"
+            app:tabIndicatorColor="@color/colorMain"
+            app:tabIndicatorHeight="1dp"
+            app:tabSelectedTextColor="@color/colorMain"
+            app:tabTextColor="#AFAFAF"/>
+
+        <ImageView
+            android:id="@+id/homePage_back_to_top_iv"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:background="@mipmap/ic_menu_kefu_default_index"/>
-
+            android:layout_marginBottom="50dp"
+            android:layout_marginRight="30dp"
+            android:src="@mipmap/icon_back_to_top"
+            android:visibility="invisible"/>
     </RelativeLayout>
 </FrameLayout>

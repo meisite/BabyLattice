@@ -55,7 +55,6 @@ public class GuideIndexView extends View {
         padding = (int) typedArray.getDimension(R.styleable.index_style_circle_padding, 12);
         beforeColor = typedArray.getColor(R.styleable.index_style_color_default, Color.GRAY);
         afterColor = typedArray.getColor(R.styleable.index_style_color_selected, Color.WHITE);
-        count = typedArray.getInteger(R.styleable.index_style_count, 5);
 
         beforePaint.setColor(beforeColor);
         beforePaint.setDither(true);
@@ -98,5 +97,9 @@ public class GuideIndexView extends View {
     public void changeIndex(int index) {
         currentIndex = index;
         invalidate();
+    }
+
+    public void drawCount(int count) {
+        this.count = count;
     }
 }
