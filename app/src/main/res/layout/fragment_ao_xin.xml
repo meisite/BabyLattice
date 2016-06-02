@@ -1,0 +1,14 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="qianfeng.com.babylattice.a_homepage.ui.AoXinFragment">
+
+    <ListView
+        android:id="@+id/aoxin_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/colorGray"
+        android:dividerHeight="1dp"/>
+
+</RelativeLayout>
