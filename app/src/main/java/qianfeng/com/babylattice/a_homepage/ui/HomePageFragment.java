@@ -4,6 +4,7 @@ package qianfeng.com.babylattice.a_homepage.ui;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.design.widget.TabLayout;
@@ -48,6 +49,8 @@ import qianfeng.com.babylattice.a_homepage.bean.HomePageProductList;
 import qianfeng.com.babylattice.a_homepage.bean.MiaoSha;
 import qianfeng.com.babylattice.a_homepage.constant.HomePageURL;
 import qianfeng.com.babylattice.z_other.ui.BaseFragment;
+import qianfeng.com.babylattice.z_other.ui.SideMenuActivity;
+import qianfeng.com.babylattice.z_other.utils.ActivityAmin;
 import qianfeng.com.babylattice.z_other.widget.GuideIndexView;
 import qianfeng.com.babylattice.z_other.widget.HomePageMiaoShaLayout;
 import qianfeng.com.babylattice.z_other.widget.MyScrollView;
@@ -58,9 +61,9 @@ import qianfeng.com.babylattice.z_other.widget.MyScrollView;
  * <p/>
  * 首页
  */
-public class HomePageFragment extends BaseFragment {
+public class HomePageFragment extends BaseFragment implements View.OnClickListener {
 
-    private RelativeLayout top_view;
+    private RelativeLayout top_view, top_view2;
     private TextView top_side_menu;
     private MyScrollView scrollView;
     private ConvenientBanner convenientBanner, small_banner02, small_banner03, small_banner04;
@@ -93,9 +96,11 @@ public class HomePageFragment extends BaseFragment {
         miaosha_ll = (LinearLayout) view.findViewById(R.id.homePage_miaosha_ll);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.homePage_relativeLayout);
         top_view = (RelativeLayout) view.findViewById(R.id.homePage_top_view);
-        top_view.setAlpha(0.1f);
+        top_view.setAlpha(0.0f);
+        top_view2 = (RelativeLayout) view.findViewById(R.id.homePage_top_view2);
+        top_view2.setAlpha(1.0f);
 
-        top_side_menu = (TextView) view.findViewById(R.id.homePage_top_side_menu);
+        top_side_menu = (TextView) view.findViewById(R.id.homePage_top_side_menu2);
         scrollView = (MyScrollView) view.findViewById(R.id.homePage_scrollView);
 
         convenientBanner = (ConvenientBanner) view.findViewById(R.id.homePage_convenientBanner);
@@ -180,6 +185,8 @@ public class HomePageFragment extends BaseFragment {
     @Override
     protected void initEvents() {
 
+        top_side_menu.setOnClickListener(this);
+
         gone_tab_Layout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -254,7 +261,7 @@ public class HomePageFragment extends BaseFragment {
                 int standardHeight = top_view_height * 3;
 
                 if (t >= 0 && t <= standardHeight) {
-                    top_view.setAlpha(0.1f + 1.0f * t / standardHeight);
+                    top_view.setAlpha(1.0f * t / standardHeight);
                 } else {
                     top_view.setAlpha(1.0f);
                 }
@@ -814,6 +821,17 @@ public class HomePageFragment extends BaseFragment {
 
             }
         });
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.homePage_top_side_menu2:
+                startActivity(new Intent(getContext(), SideMenuActivity.class));
+//                ActivityAmin.startActivityAmin(SideMenuActivity.class);
+                break;
+        }
     }
 
 

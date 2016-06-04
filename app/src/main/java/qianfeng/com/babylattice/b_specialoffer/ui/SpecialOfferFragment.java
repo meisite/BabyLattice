@@ -35,8 +35,8 @@ public class SpecialOfferFragment extends BaseFragment {
 
     @Override
     protected void initDatas() {
-        tabLayout.addTab(tabLayout.newTab().setText("最新上线"));
-        tabLayout.addTab(tabLayout.newTab().setText("即将上线"));
+//        tabLayout.addTab(tabLayout.newTab().setText("最新上线"));
+//        tabLayout.addTab(tabLayout.newTab().setText("即将上线"));
     }
 
 }

@@ -5,11 +5,12 @@ import android.content.Intent;
 
 import qianfeng.com.babylattice.z_other.ui.GuideActivity;
 import qianfeng.com.babylattice.z_other.ui.MainActivity;
+import qianfeng.com.babylattice.z_other.ui.SideMenuActivity;
 
 
 /**
  * Created by Administrator on 2016/5/26 0026.
- *
+ * <p/>
  * 跳转工具类
  */
 public class JumpActivity {
@@ -23,4 +24,5 @@ public class JumpActivity {
         Intent intent = new Intent(activity, MainActivity.class);
         activity.startActivity(intent);
     }
+
 }

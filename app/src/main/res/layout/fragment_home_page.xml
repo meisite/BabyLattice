@@ -835,6 +835,53 @@
                 android:background="@mipmap/ic_menu_kefu_default_index"/>
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/homePage_top_view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_top_title_height"
+            android:background="#00FF4484">
+
+            <TextView
+                android:id="@+id/homePage_top_side_menu2"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/selector_home_page_top_menu"
+                android:clickable="true"/>
+
+            <LinearLayout
+                android:id="@+id/homePage_top_search2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_home_page_top_search"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@mipmap/icon_title_search"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center"
+                    android:text="啦啦啦啦啦啦"
+                    android:textColor="@color/colorGray"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_menu_kefu_default_index"/>
+        </RelativeLayout>
+
         <android.support.design.widget.TabLayout
             android:id="@+id/homePage_gone_tabLayout"
             android:layout_width="match_parent"

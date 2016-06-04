@@ -1,0 +1,37 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context="qianfeng.com.babylattice.z_other.ui.SideMenuPinPaiFragment">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="11">
+
+        <ListView
+            android:id="@+id/side_menu_pinpai_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/colorGray"
+            android:dividerHeight="1dp"
+            android:paddingLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/side_menu_pinpai_tv_letter_title"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/colorGray"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="A"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/side_menu_pinpai_letter_side"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
+</LinearLayout>
